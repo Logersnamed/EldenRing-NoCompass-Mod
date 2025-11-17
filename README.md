@@ -1,10 +1,10 @@
 # EldenRing NoCompass Mod
-A mod to hide annoying compass in Elden Ring single-player. It completely removes the compass HUD element regardless of your in-game HUD settings. **Elden Mod Loader** is required to run this mod.
+A mod that hides annoying compass in Elden Ring single-player. It completely removes the compass HUD element regardless of your in-game HUD settings. **Elden Mod Loader** is required to run this mod.
 
 ## Installation
 1. Disable anti-cheat, using something like [Anti-Cheat Toggler](https://www.nexusmods.com/eldenring/mods/90).
 2. Install [EldenModLoader](https://www.nexusmods.com/eldenring/mods/117).
-3. Download and extract the contents of **NoCompass.zip** into:  
+3. [Download](https://github.com/Logersnamed/EldenRing-NoCompass-Mod/releases) and extract the contents of **NoCompass.zip** into:  
    `...\steamapps\common\ELDEN RING\Game\mods`
 4. Launch the game.
 
