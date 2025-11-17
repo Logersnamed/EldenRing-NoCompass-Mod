@@ -7,17 +7,15 @@ extern "C" {
 	void RemoveCompass();
 	uintptr_t returnAddress = 0;
 	uintptr_t base = 0;
+	uintptr_t compassPtr = 0;
 }
 
 DWORD WINAPI MainThread(LPVOID lpParam) {
 	Log("Activating NoCompass...");
-	std::string aob = "f2 0f 11 bb 90 00 00 00";
+	std::string aob = "0f 11 b3 80 00 00 00 0f 28 b4 24 80 00 00 00 f2 0f 11 bb 90 00 00 00 0f 28 7c 24 70 4c 8d 9c 24 90 00 00 00";
 	uintptr_t hookAddress = AobScan(aob);
-	size_t offset = 15;
 
 	if (hookAddress != 0) {
-		hookAddress -= offset;
-
 		base = GetProcessBaseAddress(GetCurrentProcessId());
 		returnAddress = hookAddress + 14 + 14;
 
