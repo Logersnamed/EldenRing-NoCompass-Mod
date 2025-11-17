@@ -1,6 +1,6 @@
 .data
 extern returnAddress : qword
-extern base    : qword
+extern base : qword
 
 MIN_VALID dq 10000h
 MAX_VALID dq 07FFFFFFFFFFFh
@@ -61,6 +61,5 @@ _end:
     movaps    xmm7, xmmword ptr [rsp+70h]
     lea       r11, [rsp+90h]
     jmp       qword ptr [returnAddress]
-
 RemoveCompass endp
 end

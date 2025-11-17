@@ -7,7 +7,6 @@ extern "C" {
 	void RemoveCompass();
 	uintptr_t returnAddress = 0;
 	uintptr_t base = 0;
-	uintptr_t compassPtr = 0;
 }
 
 DWORD WINAPI MainThread(LPVOID lpParam) {
