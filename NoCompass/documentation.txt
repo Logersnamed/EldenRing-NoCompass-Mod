@@ -103,10 +103,10 @@ eldenring.exe+1240948 - E8 23030000           - call eldenring.exe+1240C70
 eldenring.exe+124094D - 48 8B B4 24 A0000000  - mov rsi,[rsp+000000A0]
 eldenring.exe+1240955 - 0F11 B3 80000000      - movups [rbx+00000080],xmm6	<------ hookAddress ( RemoveCompass.asm saves the 2 instructions around movsd [rbx+90], xmm7
 eldenring.exe+124095C - 0F28 B4 24 80000000   - movaps xmm6,[rsp+00000080]	                      replaces movsd [rbx+90], xmm7 with its own, and then returns to mov rbx, [r11+18] )
-eldenring.exe+1240964 - F2 0F11 BB 90000000   - movsd [rbx+00000090],xmm7       <------ signature
+eldenring.exe+1240964 - F2 0F11 BB 90000000   - movsd [rbx+00000090],xmm7
 eldenring.exe+124096C - 0F28 7C 24 70         - movaps xmm7,[rsp+70]
-eldenring.exe+1240971 - 4C 8D 9C 24 90000000  - lea r11,[rsp+00000090]		<------ returnAddress
-eldenring.exe+1240979 - 49 8B 5B 18           - mov rbx,[r11+18]
+eldenring.exe+1240971 - 4C 8D 9C 24 90000000  - lea r11,[rsp+00000090]
+eldenring.exe+1240979 - 49 8B 5B 18           - mov rbx,[r11+18]		<------ returnAddress
 eldenring.exe+124097D - 49 8B 6B 20           - mov rbp,[r11+20]
 eldenring.exe+1240981 - 49 8B E3              - mov rsp,r11
 eldenring.exe+1240984 - 5F                    - pop rdi
