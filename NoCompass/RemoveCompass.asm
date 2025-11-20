@@ -24,6 +24,10 @@ RemoveCompass proc
     movups    xmmword ptr [rbx+80h], xmm6
     movaps    xmm6, xmmword ptr [rsp+80h]
 
+    ; Check if xmm7 is already 0
+    ptest     xmm7, xmm7
+    jz        _orig
+
     ; Calculate compass pointer = base + 3B42FB8 + 40 + 30 + 88 + D8 + 110 + D8 + 30 + 48 + 70 + 90
     mov       rax, qword ptr [base]
     add       rax, 3B42FB8h
