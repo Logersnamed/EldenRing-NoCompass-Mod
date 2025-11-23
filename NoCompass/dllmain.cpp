@@ -2,28 +2,10 @@
 #include "ModUtils.h"
 
 using namespace ModUtils;
-using namespace mINI;
 
 extern "C" {
 	void RemoveCompass();
 	uintptr_t returnAddress = 0;
-    uintptr_t refreshRate = 2000;
-	uintptr_t base = 0;
-}
-
-void ReadConfig() {
-    INIFile config(GetModFolderPath() + "\\config.ini");
-    INIStructure ini;
-
-    if (config.read(ini)) {
-        refreshRate = (uintptr_t)std::stof(ini["refreshRate"]["ms"]);
-    }
-    else {
-        ini["refreshRate"]["ms"] = "2000";
-        config.write(ini, true);
-    }
-
-    Log("Refresh rate: ", refreshRate, " ms");
 }
 
 DWORD WINAPI MainThread(LPVOID lpParam) {
@@ -32,9 +14,6 @@ DWORD WINAPI MainThread(LPVOID lpParam) {
 	uintptr_t hookAddress = AobScan(aob);
 
 	if (hookAddress != 0) {
-		ReadConfig();
-
-		base = GetProcessBaseAddress(GetCurrentProcessId());
 		returnAddress = hookAddress + 14 + 14;
 
 		Hook(hookAddress, (uintptr_t)&RemoveCompass, 14);
