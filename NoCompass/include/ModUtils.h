@@ -341,10 +341,12 @@ namespace ModUtils
 
 			bool isMemoryReadable = (
 				protection == PAGE_EXECUTE_READWRITE
-				|| protection == PAGE_READWRITE
-				|| protection == PAGE_READONLY
-				|| protection == PAGE_WRITECOPY
-				|| protection == PAGE_EXECUTE_WRITECOPY)
+					|| protection == PAGE_READWRITE
+					|| protection == PAGE_READONLY
+					|| protection == PAGE_WRITECOPY
+					|| protection == PAGE_EXECUTE_WRITECOPY
+					|| protection == PAGE_EXECUTE_READ
+				)
 				&& state == MEM_COMMIT;
 			if (isMemoryReadable)
 			{
