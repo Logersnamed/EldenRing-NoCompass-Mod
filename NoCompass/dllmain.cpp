@@ -10,6 +10,12 @@ extern "C" {
 
 DWORD WINAPI MainThread(LPVOID lpParam) {
 	Log("Activating NoCompass...");
+
+#ifdef MOD_ENGINE_2
+	Log("Delaying mod loading (because ModEngine2 doesn't)");
+	Sleep(5000);
+#endif
+
 	std::string aob = "0f 11 b3 80 00 00 00 0f 28 b4 24 80 00 00 00 f2 0f 11 bb 90 00 00 00 0f 28 7c 24 70 4c 8d 9c 24 90 00 00 00";
 	uintptr_t hookAddress = AobScan(aob);
 
