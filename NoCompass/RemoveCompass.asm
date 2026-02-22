@@ -1,5 +1,6 @@
 .data
 extern returnAddress : qword
+extern g_isAlone : byte
 
 f_minus_10292       REAL4 -10292.0
 f_minus_9885        REAL4 -9885.0
@@ -36,6 +37,10 @@ f_minus_8306        REAL4 -8306.0
     RemoveCompass proc
         movups    xmmword ptr [rbx+80h], xmm6
         movaps    xmm6, xmmword ptr [rsp+80h]
+
+        ; If multiplayer => skip
+        cmp     byte ptr [g_isAlone], 0
+        je      _orig
 
         ; If xmm7 is already 0 => skip
         ptest     xmm7, xmm7
